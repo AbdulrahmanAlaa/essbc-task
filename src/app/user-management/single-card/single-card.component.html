@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-body">
+    <div class="text-center">
+      <img [src]="user.avatar_url" class="rounded-circle" alt="">
+    </div>
+    <div class="card-text">
+      <!-- <div>
+        <label><strong>{{'user-management.list.name'|translate}}</strong> </label>
+        {{user.name || 'common.na'|translate}}
+      </div> -->
+      <div>
+        <label><strong>{{'user-management.list.login-name'|translate}}</strong> </label>
+        {{user.login || 'common.na'|translate}}
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <!-- Remove user Part -->
+      <a [tooltip]="'user-management.list.tool-tip.delete'|translate" [routerLink]="['delete',user?.login]" class="btn btn-danger list__white">
+        <span class="icon-remove"></span>
+      </a>
+      <!-- Edit user Part -->
+      <a [tooltip]="'user-management.list.tool-tip.edit'|translate" [routerLink]="[user.name]" class="btn btn-dark ml-2 list__white">
+        <span class="icon-edit"></span>
+      </a>
+    </div>
+  </div>
+</div>

@@ -12,7 +12,11 @@ const routes: Routes = [
   {
     path: pages.home.path,
     loadChildren: 'src/app/home/home.module#HomeModule',
-  }
+  },
+  {
+    path: pages.userManagement.path,
+    loadChildren: 'src/app/user-management/user-management.module#UserManagementModule'
+  },
   //,
   // {
   //   path: '**',

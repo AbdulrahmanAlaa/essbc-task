@@ -11,5 +11,24 @@ export const pages = {
                 path: ''
             }
         }
+    },
+    userManagement: {
+        path: 'users',
+        loadChildren: 'src/app/user-management/user-management.module#UserManagementModule',
+        children: {
+            list: {
+                path: ''
+            },
+            add: {
+                path: 'add'
+            },
+            edit: {
+                path: ':id'
+            },
+            delete: {
+                path: 'delete/:id'
+            }
+
+        }
     }
 };

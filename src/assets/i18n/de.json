@@ -1,1 +1,34 @@
-{}
+{
+    "common": {
+        "na": "N/A",
+        "cancel": "Cancel",
+        "delete": "Delete"
+    },
+    "project-info": {
+        "name": "essbc task"
+    },
+    "user-management": {
+        "list": {
+            "main-title": "Our Users",
+            "name": "Name :",
+            "login-name": "Login Name:",
+            "tool-tip": {
+                "add": "Add new user",
+                "edit": "Edit user",
+                "delete": "Delete user"
+            }
+        },
+        "add": {
+            "first-name": "First Name",
+            "last-name": "Last Name",
+            "birthday": "Birthday",
+            "gender": "Gender",
+            "male": "Male",
+            "female": "Female",
+            "image": "upload user image (optional)"
+        },
+        "delete": {
+            "message": "Are you sure you want to delete the following user ?"
+        }
+    }
+}

@@ -1,0 +1,75 @@
+<div class="add_edit">
+  <form *ngIf="addUserForm" [formGroup]="addUserForm" (ngSubmit)="submit()" novalidate>
+    <div class="row">
+      <div class="col-lg-8">
+        <p class="text-center add_edit__image_error"><small>{{imageError}}</small></p>
+        <img style="max-height: 250px;max-width: 100%;" [src]="customerImageURL" class="add_edit__user_image rounded-circle"
+          alt="">
+        <label class="add_edit__block" for="customerimage">
+          <span placement="bottom" [tooltip]="'user-management.add.image'|translate" class="add_edit__uploader-icon rounded-circle icon-add"></span>
+        </label>
+        <input #customerimage (change)="customerImageChanged($event)" id="customerimage" type="file">
+      </div>
+    </div>
+    <div class="row">
+
+      <!-- First Name Part -->
+      <div [ngClass]="{'was-validated': (submitted || addUserForm.controls['fname']?.touched) && !addUserForm.controls['fname']?.valid}"
+        class="form-group col-md-4">
+        <label for="fname">{{'user-management.add.first-name' |translate}} *</label>
+        <input formControlName="fname" type="text" class="form-control" id="fname" [placeholder]="'user-management.add.first-name' |translate"
+          required>
+        <div class="invalid-feedback">
+          Please enter first name.
+        </div>
+      </div>
+
+      <!-- Last Name Part -->
+      <div [ngClass]=" { 'was-validated': (submitted||addUserForm.controls['lname']?.touched) && !addUserForm.controls['lname']?.valid}"
+        class="form-group col-md-4">
+        <label for="lname">{{'user-management.add.last-name' |translate}} *</label>
+        <input formControlName="lname" type="text" class="form-control" id="lname" [placeholder]="'user-management.add.last-name' |translate"
+          required>
+        <div class="invalid-feedback">
+          Please enter last name.
+        </div>
+      </div>
+    </div>
+    <!-- BirthDate Part -->
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="birthday">{{'user-management.add.birthday' |translate}}</label>
+        <input formControlName="birthday" id="birthday" class="form-control" [bsConfig]="{ containerClass: 'theme-default' }"
+          bsDatepicker [bsValue]="initialDate">
+      </div>
+    </div>
+    <!-- Gender Part -->
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="mr-3" for="gender">{{'user-management.add.gender' |translate}}</label>
+        <div class="btn-group" dropdown>
+          <button id="gender" dropdownToggle type="button" class="btn btn-default dropdown-toggle" aria-controls="dropdown-basic">
+            {{ addUserForm.controls.gender.value == 'm'?('user-management.add.male'
+            |translate):('user-management.add.female'
+            |translate)}}
+            <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="gender">
+            <li role="menuitem">
+              <a (click)="setGender('m')" class="dropdown-item">{{'user-management.add.male' |translate}}</a>
+            </li>
+            <li role="menuitem">
+              <a (click)="setGender('w')" class="dropdown-item">{{'user-management.add.female' |translate}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <button [routerLink]="['/users']" class="btn btn-default">{{'common.cancel'|translate}}</button>
+    <button type="submit" class="btn btn-dark ml-2">{{isEditMode?('common.edit'|translate):('common.add'|translate)}}</button>
+  </form>
+  <div *ngIf="!user && showSpinner" class="loading">
+    <span class="icon-spinner global-spinner"></span>
+  </div>
+</div>

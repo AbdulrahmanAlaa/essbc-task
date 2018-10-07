@@ -1,0 +1,63 @@
+.cover-photo {
+    background: url("/assets/images/back.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 30vh;
+    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.big-badge {
+    font-size: 20px;
+}
+
+.links {
+    margin: 0 auto;
+    text-align: center;
+
+    span {
+        font-size: 40px;
+    }
+
+    a, a:visited, a:active {
+        text-decoration: none;
+        color: initial;
+    }
+}
+
+.logo {
+    height: 70px;
+}
+
+.experience {
+    background-color: #c5c5c508;
+}
+
+// Extending bootstrap
+.rounded-circle {
+    width: 150px;
+    height: 150px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    margin: 0 auto;
+    left: calc(50% - 150px/2);
+    top: 20vh;
+    z-index: 10;
+}
+
+.container-fluid {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.big-badge {
+    font-size: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .rounded-circle {
+        top: 10vh;
+    }
+
+    .logo {
+        height: 30px;
+    }
+}
